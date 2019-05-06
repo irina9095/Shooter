@@ -72,15 +72,15 @@
     <Compile Include="Assets\_Complete-Game\Scripts\Done_PlayerController.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Done_RandomRotator.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Done_WeaponController.cs" />
+    <Compile Include="Assets\Scripts\AsteroidCollision.cs" />
+    <Compile Include="Assets\Scripts\AsteroidEmmiter.cs" />
+    <Compile Include="Assets\Scripts\AsteroidScript.cs" />
+    <Compile Include="Assets\Scripts\bgScrooler.cs" />
+    <Compile Include="Assets\Scripts\BorderCollider.cs" />
+    <Compile Include="Assets\Scripts\DelayDestroy.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Sprites\AsteroidCollision.cs" />
-    <Compile Include="Assets\Sprites\AsteroidEmmiter.cs" />
-    <Compile Include="Assets\Sprites\AsteroidScript.cs" />
-    <Compile Include="Assets\Sprites\bgScrooler.cs" />
-    <Compile Include="Assets\Sprites\BorderCollider.cs" />
-    <Compile Include="Assets\Sprites\DelayDestroy.cs" />
-    <Compile Include="Assets\Sprites\PlayerShipScript.cs" />
-    <Compile Include="Assets\Sprites\ShootScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerShipScript.cs" />
+    <Compile Include="Assets\Scripts\ShootScript.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Space_Shooter/Shooter/Space_Shooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
