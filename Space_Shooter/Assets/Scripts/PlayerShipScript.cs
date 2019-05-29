@@ -39,8 +39,6 @@ public class PlayerShipScript : MonoBehaviour
         {
             return;
         }
-
-        
         else if (Input.GetButton("Fire1") && CanShoot)
         {
             nextShoot = Time.time + shotDelay;
@@ -54,27 +52,26 @@ public class PlayerShipScript : MonoBehaviour
 
         Resolution[] resolutions = Screen.resolutions;
 
+        Rigidbody ship = GetComponent<Rigidbody>();
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (moveHorizontal ==0 && touch.phase == TouchPhase.Moved)
+            if (moveHorizontal == 0 && touch.phase == TouchPhase.Moved)
             {
                 if (touch.deltaPosition.x > 0)
                     moveHorizontal = touchSpeedMove;
                 else if (touch.deltaPosition.x < 0)
-                    moveHorizontal = -touchSpeedMove ;
+                    moveHorizontal = -touchSpeedMove;
             }
 
-            if(moveVertical == 0 && touch.phase == TouchPhase.Moved)
+            if (moveVertical == 0 && touch.phase == TouchPhase.Moved)
             {
-                if (touch.deltaPosition.y > 0) 
+                if (touch.deltaPosition.y > 0)
                     moveVertical = touchSpeedMove;
                 else if (touch.deltaPosition.y < 0)
                     moveVertical = -touchSpeedMove;
             }
         }
-
-        Rigidbody ship = GetComponent<Rigidbody>();
 
         ship.velocity = new Vector3(moveHorizontal, 0, moveVertical) * speed;
         ship.rotation = Quaternion.Euler(ship.velocity.z * tilt, 0, -ship.velocity.x * tilt);
