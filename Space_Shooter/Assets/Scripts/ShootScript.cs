@@ -10,10 +10,4 @@ public class ShootScript : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, speed);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

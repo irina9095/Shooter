@@ -69,6 +69,9 @@
     <Compile Include="Assets\Scripts\BorderCollider.cs" />
     <Compile Include="Assets\Scripts\Buy_Ship.cs" />
     <Compile Include="Assets\Scripts\DelayDestroy.cs" />
+    <Compile Include="Assets\Scripts\Dron_Script.cs" />
+    <Compile Include="Assets\Scripts\EnemyScript.cs" />
+    <Compile Include="Assets\Scripts\EnemyShoot.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\PlayerShipScript.cs" />
     <Compile Include="Assets\Scripts\ShootScript.cs" />

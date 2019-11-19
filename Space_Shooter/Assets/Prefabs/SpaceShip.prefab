@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5889591375142784696
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5889591375142784697}
-  m_Layer: 0
-  m_Name: LazerGun
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5889591375142784697
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5889591375142784696}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.78}
-  m_LocalScale: {x: 1, y: 1, z: 1.1125}
-  m_Children: []
-  m_Father: {fileID: 5889591375728237986}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5889591375728198018
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,15 +28,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5889591375728198018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.8}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.04, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5889591375142784697}
-  - {fileID: 3163609434676035894}
+  - {fileID: 415535394635851274}
+  - {fileID: 5658661624794790536}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &5889591375724813698
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -139,8 +109,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.71
-  m_Height: 1.84
+  m_Radius: 0.65
+  m_Height: 2.11
   m_Direction: 2
   m_Center: {x: 0.0006894469, y: -0.0045119673, z: 0}
 --- !u!114 &5889591375505562292
@@ -155,19 +125,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f9e00555575aa428bf89ea485abd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   tilt: 3
-  touchSpeedMove: 0.7
+  touchSpeedMove: 0.6
   boundary:
     xMin: -3.86
     zMin: -6.7
     xMax: 3.8
     zMax: 7
-  lazerShot: {fileID: 1385235521896661009, guid: 788f912cf998aa74caa74c653f9f12c9,
+  lazerShot: {fileID: 3254346826040477357, guid: ed73ee90699130b4b8e6620ba60f414a,
     type: 3}
-  lazerGun: {fileID: 5889591375142784696}
+  lazerGun: {fileID: 6402390271886081258}
   shotDelay: 0.5
---- !u!1001 &3163609434676435892
+--- !u!1 &6402390271886081258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415535394635851274}
+  m_Layer: 0
+  m_Name: LazerGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415535394635851274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6402390271886081258}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0006894469, y: -0.0045119524, z: 0.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5889591375728237986}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5658661624794390538
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -224,9 +224,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ea8a5ca94c546f29ba6dea8f379a7b, type: 3}
---- !u!4 &3163609434676035894 stripped
+--- !u!4 &5658661624794790536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 62ea8a5ca94c546f29ba6dea8f379a7b,
     type: 3}
-  m_PrefabInstance: {fileID: 3163609434676435892}
+  m_PrefabInstance: {fileID: 5658661624794390538}
   m_PrefabAsset: {fileID: 0}

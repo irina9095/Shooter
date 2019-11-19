@@ -13,19 +13,18 @@ public class AsteroidCollision : MonoBehaviour
     {
         GameController gameсontroller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();//Определяем GameController
 
-        if (other.tag == "Border" || other.tag == "Asteroid")
+        if (other.tag == "Border" || other.tag == "Asteroid" || other.tag == "EnemyShoot" || other.tag == "Enemy")
         {
-            return;//Ничего не делаем, если это другой астероид или границы
+            return;
         }
         if(other.tag == "Player")
         {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);//"Взрываем" корабль
-            gameсontroller.Start();//Перезапускаем GameController
-            gameсontroller.buttonStart.GetComponentInChildren<UnityEngine.UI.Text>().text = "Restart";//Кнопку Start переименовываем в Restart
+            gameсontroller.New_Game();
         }
         else
         {
             gameсontroller.IncreaseScore(1);//Если астероид столкнулся с выстрелом, увеличиваем количество очков
+            gameсontroller.IncreaseMoney(1);
         }
 
         Instantiate(explosion, transform.position, transform.rotation);//"Взрываем" астероид

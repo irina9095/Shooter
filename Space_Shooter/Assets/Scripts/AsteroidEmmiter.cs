@@ -7,7 +7,8 @@ public class AsteroidEmmiter : MonoBehaviour
     public float minDelay;
     public float maxDelay;
 
-    public GameObject asteroid_1, asteroid_2, asteroid_3;//определяем шаблоны астероидов
+    public GameObject asteroid_1, asteroid_2, asteroid_3;//определяем шаблоны астероидов 
+    public GameObject enemy;
     private float AsteroidCount = 1;//Устанавливаем начальное значение
     private float nextSpawn;//время запуска нового астероида
 
@@ -21,7 +22,7 @@ public class AsteroidEmmiter : MonoBehaviour
             return;
         }
 
-        else if (Time.time > nextSpawn )
+        else if (Time.time > nextSpawn && AsteroidCount < 10)
         {
             float maxAsteroid = Random.Range(1, AsteroidCount);//Выбираем случайное количество астероидов, которые появятся на сцене
             for (int i = 0; i < maxAsteroid; i++)
@@ -39,7 +40,7 @@ public class AsteroidEmmiter : MonoBehaviour
 
                 GameObject asteroid = asteroid_1;//объект астероида по умолчанию
 
-                switch (Random.Range(0, 3))//случайным образом выбираем астероид
+                switch (Random.Range(0, 3))//случайным образом выбираем объект
                 {
                     case 1:
                         asteroid = asteroid_2;
@@ -51,9 +52,23 @@ public class AsteroidEmmiter : MonoBehaviour
                         break;
                 }
 
-                Instantiate(asteroid, startPosition, Quaternion.identity);//Генерируем астероид на сцене
+                Instantiate(asteroid, startPosition, Quaternion.Euler(0, 180, 0) );//Генерируем на сцене
             }
-            AsteroidCount += 0.03f;//Увеличиваем максимальное количество
+            AsteroidCount += 0.3f;//Увеличиваем максимальное количество
+        }
+        else if (AsteroidCount >= 10)
+        {
+            float XPosition = Random.Range(-transform.localScale.x / 2, transform.localScale.x / 2);
+
+
+            Vector3 startPosition = new Vector3(//передаем сгенерированное случайное положение
+                XPosition,
+                transform.position.y,
+                transform.position.z
+                );
+            Instantiate(enemy, startPosition, Quaternion.Euler(0, 180, 0));//Генерируем на сцене
+            enabled = false;
+            AsteroidCount = 1;
         }
     }
 }

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Border
   - Asteroid
+  - Enemy
+  - EnemyShoot
+  - PlayerShoot
+  - Emmiter
   layers:
   - Default
   - TransparentFX

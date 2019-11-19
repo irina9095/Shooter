@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Boundary
 {
-    public float xMin, zMin, xMax, zMax;
+    public float xMin, zMin, xMax,  zMax;
     
 }
 
@@ -29,7 +29,6 @@ public class PlayerShipScript : MonoBehaviour
         Screen.orientation = ScreenOrientation.Portrait;
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool isGameStarted = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().isGameStarted;
@@ -47,37 +46,47 @@ public class PlayerShipScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+
         float moveHorizontal = Input.GetAxis("Horizontal");
+        //Debug.Log("X "+moveHorizontal);
+
         float moveVertical = Input.GetAxis("Vertical");
+        //Debug.Log("Y " + moveHorizontal);
 
-        Resolution[] resolutions = Screen.resolutions;
-
-        Rigidbody ship = GetComponent<Rigidbody>();
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (moveHorizontal == 0 && touch.phase == TouchPhase.Moved)
+            float touchSpeedMove = 0.06f;
+            if (touch.phase == TouchPhase.Moved)
             {
                 if (touch.deltaPosition.x > 0)
-                    moveHorizontal = touchSpeedMove;
+                    moveHorizontal = touchSpeedMove * speed;
                 else if (touch.deltaPosition.x < 0)
-                    moveHorizontal = -touchSpeedMove;
+                    moveHorizontal = -touchSpeedMove * speed;
             }
-
-            if (moveVertical == 0 && touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved)
             {
                 if (touch.deltaPosition.y > 0)
-                    moveVertical = touchSpeedMove;
+                    moveVertical = Mathf.Clamp(touchSpeedMove * speed, -1, 1);
                 else if (touch.deltaPosition.y < 0)
-                    moveVertical = -touchSpeedMove;
+                    moveVertical = Mathf.Clamp(-touchSpeedMove * speed, -1, 1);
             }
+
         }
 
+        Rigidbody ship = GetComponent<Rigidbody>();
         ship.velocity = new Vector3(moveHorizontal, 0, moveVertical) * speed;
-        ship.rotation = Quaternion.Euler(ship.velocity.z * tilt, 0, -ship.velocity.x * tilt);
+        ship.rotation = Quaternion.Euler(ship.velocity.z * (tilt / 3), 0, -ship.velocity.x * tilt);
 
         float xPosition = Mathf.Clamp(ship.position.x, boundary.xMin, boundary.xMax);
         float zPosition = Mathf.Clamp(ship.position.z, boundary.zMin, boundary.zMax);
+
+        ship.position = new Vector3(xPosition, 0, zPosition);
+
+        ship.velocity = new Vector3(moveHorizontal, 0, moveVertical) * speed;
+        ship.rotation = Quaternion.Euler(ship.velocity.z * tilt, 0, -ship.velocity.x * tilt);
+        
 
         ship.position = new Vector3(xPosition, 0, zPosition);
     }
